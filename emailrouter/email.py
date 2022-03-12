@@ -38,10 +38,9 @@ class Email:
         self.attachments = self.email.attachments
         self.headers = self.email.headers
 
-        if not self.text_plain:
-            h = html2text.HTML2Text()
-            h.ignore_images = True
-            self.text_plain = h.handle(self.text_html)
+        h = html2text.HTML2Text()
+        h.ignore_images = True
+        self.text_markdown: str = h.handle(self.text_html)
 
     @classmethod
     def from_file(cls, filename):

@@ -51,7 +51,7 @@ class IMAPHandler(ArgumentMixin, Handler):
 
 
 class DiscordWebhook:
-    MESSAGE_LIMIT = 2000
+    MESSAGE_LIMIT = 3000
 
     def __init__(self, webhook_url):
         self.webhook_url = webhook_url
@@ -79,15 +79,15 @@ class DiscordHandler(ArgumentMixin, Handler):
 
         self.webhook = DiscordWebhook(self.kwargs['webhook_url'])
         self.payload = self.kwargs.get('payload', {})
-        self.colour = self.kwargs.get('color', self.kwargs.get('colour', 0xeee))
+        self.colour = self.kwargs.get('color', self.kwargs.get('colour', 0xeeeeee))
 
     def __call__(self, email):
-        subject = f'{email.subject}'
-        message = email.text_plain
+        subject = self.webhook.escape(email.subject)
+        message = self.webhook.escape(email.text_plain) or email.text_markdown
 
         fields = []
         for name, value in (
-            ('From', email.sender),
+            ('From', ', '.join(email.senders)),
             ('To', ', '.join(email.recipients)),
             ('CC', ', '.join(email.cc)),
             ('BCC', ', '.join(email.bcc)),
@@ -103,13 +103,13 @@ class DiscordHandler(ArgumentMixin, Handler):
             **self.payload,
             'embeds': [
                 {
-                    'title': self.webhook.escape(subject),
+                    'title': subject,
                     'color': self.colour,
                     'timestamp': email.date.isoformat(),
                     'fields': fields,
                 },
                 {
-                    'title': self.webhook.escape(subject),
+                    'title': subject,
                     'description': message[:self.webhook.MESSAGE_LIMIT],
                     'color': self.colour,
                     'timestamp': email.date.isoformat(),
