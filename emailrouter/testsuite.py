@@ -3,7 +3,7 @@ import os
 
 import yaml
 
-from emailrouter import Router, Email
+from emailrouter import Email, Router
 
 
 logger = logging.getLogger(__name__)

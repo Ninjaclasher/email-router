@@ -173,8 +173,8 @@ class TestFilters(unittest.TestCase):
                     'type': 'regex',
                     'field': None,
                     'value': '.*aa(.*)',
-                }
-            ]
+                },
+            ],
         })
         self.assertTrue(f('p'))
         self.assertTrue(f('aap'))
@@ -194,8 +194,8 @@ class TestFilters(unittest.TestCase):
                     'type': 'iregex',
                     'field': None,
                     'value': '.*aa(.*)',
-                }
-            ]
+                },
+            ],
         })
         self.assertTrue(f('paoskaaa'))
         self.assertFalse(f('p'))

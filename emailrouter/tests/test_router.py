@@ -1,7 +1,7 @@
 import unittest
 from email.message import EmailMessage
 
-from emailrouter import Router, Email
+from emailrouter import Email, Router
 
 
 def handle(email):
@@ -55,7 +55,7 @@ class TestRouter(unittest.TestCase):
                                 'type': 'length',
                                 'field': 'subject',
                                 'value': 3,
-                            }
+                            },
                         ],
                     },
                 },

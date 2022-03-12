@@ -1,10 +1,9 @@
-import json
 import imaplib
+import json
 import urllib.parse
 from urllib import request
 
-from emailrouter.utils import load_module_from_file, ArgumentMixin, Registry, Base as Handler
-
+from emailrouter.utils import ArgumentMixin, Base as Handler, Registry, load_module_from_file
 
 HandlerRegistry = Registry()
 register_handler = HandlerRegistry.register_class
@@ -80,7 +79,7 @@ class DiscordHandler(ArgumentMixin, Handler):
 
         self.webhook = DiscordWebhook(self.kwargs['webhook_url'])
         self.payload = self.kwargs.get('payload', {})
-        self.colour = self.kwargs.get('color', self.kwargs.get('colour',  0xeee))
+        self.colour = self.kwargs.get('color', self.kwargs.get('colour', 0xeee))
 
     def __call__(self, email):
         subject = f'{email.subject}'

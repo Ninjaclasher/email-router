@@ -1,9 +1,9 @@
 import logging
+
 import yaml
 
-
-from emailrouter.handlers import HandlerRegistry
 from emailrouter.filters import FilterRegistry
+from emailrouter.handlers import HandlerRegistry
 
 
 logger = logging.getLogger(__name__)

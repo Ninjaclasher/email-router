@@ -1,6 +1,6 @@
 import re
 
-from emailrouter.utils import load_module_from_file, ArgumentMixin, Registry, Base as Filter
+from emailrouter.utils import ArgumentMixin, Base as Filter, Registry, load_module_from_file
 
 
 FilterRegistry = Registry()
