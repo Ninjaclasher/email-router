@@ -1,0 +1,9 @@
+config: config.yml
+python_files: []
+emails:
+ - name: basic
+   file: email1
+   expected: [route0]
+ - name: fallthrough
+   file: email2
+   expected: [route1, route3]

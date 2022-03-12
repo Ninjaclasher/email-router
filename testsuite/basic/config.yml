@@ -1,0 +1,38 @@
+routes:
+  - name: route0
+    propagate: false
+    handlers: []
+    condition:
+      type: all
+      conditions:
+        - type: iequal
+          field: subject
+          value: TEST
+        - type: listany
+          field: recipient_names
+          value: ev
+          condition: istartswith
+        - type: listall
+          field: recipients
+          value: .com
+          condition: endswith
+  - name: route1
+    propagate: true
+    handlers: []
+    condition:
+      type: "true"
+  - name: route2
+    propagate: true
+    handlers: []
+    condition:
+      type: "false"
+  - name: route3
+    propagate: false
+    handlers: []
+    condition:
+      type: "true"
+  - name: route4
+    propagate: true
+    handlers: []
+    condition:
+      type: "true"

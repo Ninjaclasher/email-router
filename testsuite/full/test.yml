@@ -1,0 +1,11 @@
+config: config.yml
+emails:
+ - name: request token
+   file: email1
+   expected: [request tokens, catchall]
+ - name: github
+   file: email2
+   expected: [github]
+ - name: catchall
+   file: email3
+   expected: [catchall]

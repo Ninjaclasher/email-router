@@ -1,0 +1,19 @@
+MIME-Version: 1.0
+From: REDACTED <redacted@gmail.com>
+Date: Tue, 1 Mar 2022 21:36:46 -0800
+Message-ID: <MnnRVAx-500@mail.gmail.com>
+Subject: Request Token
+To: auto@example.com
+Content-Type: multipart/alternative; boundary="0000000000007abfa505d935ab40"
+
+--0000000000007abfa505d935ab40
+Content-Type: text/plain; charset="UTF-8"
+
+
+
+--0000000000007abfa505d935ab40
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr"><br></div>
+
+--0000000000007abfa505d935ab40--

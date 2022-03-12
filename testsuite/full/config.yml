@@ -1,0 +1,82 @@
+handlers:
+  main discord:
+    type: discord
+    kwargs:
+      webhook_url: https://discord.com/
+      colour: 0x000
+      payload:
+        username: main
+  ArchivedEmail:
+    type: imap
+    kwargs:
+      url: imap://a:a@example.com
+      ssl: true
+      flags: "(\\Seen)"
+      mailbox: "Trash"
+  custom:
+    type: python
+    file: handle_custom.py
+filters:
+  check_subject:
+    type: python
+    file: check_subject_eq_request_token.py
+    args:
+      - arg1
+    kwargs:
+      test_kwarg: 1
+  request token base:
+    type: all
+    conditions:
+      - type: listany
+        field: recipients
+        value: auto@example.com
+        condition: iequal
+      - type: iregex
+        field: subject
+        value: request\s+token
+      - type: named
+        name: check_subject
+routes:
+  - name: request tokens
+    propagate: true
+    handlers:
+      - type: named
+        name: custom
+    condition:
+      type: all
+      conditions:
+        - type: named
+          name: request token base
+        - type: any
+          conditions:
+            - type: listall
+              field: senders
+              value: "@gmail.com"
+              condition: iendswith
+            - type: listall
+              field: senders
+              value: "@outlook.com"
+              condition: iendswith
+  - name: github
+    propagate: false
+    handlers:
+      - type: python
+        file: handle_github.py
+      - type: named
+        name: custom
+    condition:
+      type: all
+      conditions:
+        - type: listany
+          field: senders
+          value: notifications@github.com
+          condition: iequal
+        - type: listany
+          field: cc
+          value: "@example.ca"
+          condition: iendswith
+  - name: catchall
+    propagate: false
+    handlers: []
+    condition:
+      type: "true"

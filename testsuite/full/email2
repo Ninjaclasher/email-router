@@ -1,0 +1,65 @@
+Received: by mx0079p1iad2.sendgrid.net with SMTP id 48HWOIP2Y6 Fri, 11 Mar 2022 19:11:33 +0000 (UTC)
+Received: from smtp.github.com (unknown [192.30.252.201]) by mx0079p1iad2.sendgrid.net (Postfix) with ESMTPS id 83000541D17 for <me@example.ca>; Fri, 11 Mar 2022 19:11:33 +0000 (UTC)
+Received: from github-lowworker-5fb2734.va3-iad.github.net (github-lowworker-5fb2734.va3-iad.github.net [10.48.19.27]) by smtp.github.com (Postfix) with ESMTP id 6AD563408B6 for <me@example.ca>; Fri, 11 Mar 2022 11:11:33 -0800 (PST)
+Date: Fri, 11 Mar 2022 11:11:33 -0800
+From: redacted <notifications@github.com>
+Reply-To: DMOJ/docs <reply@reply.github.com>
+To: DMOJ/docs <docs@noreply.github.com>
+Cc: redacted <me@example.ca>,  Comment <comment@noreply.github.com>
+Message-ID: <DMOJ/docs/pull/110/review/907625006@github.com>
+In-Reply-To: <DMOJ/docs/pull/110@github.com>
+References: <DMOJ/docs/pull/110@github.com>
+Subject: Re: [DMOJ/docs] Update for https://github.com/DMOJ/online-judge/pull/1743 (#110)
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="--==_mimepart_622b9ee559f37_64afc6fc701f1"; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Precedence: list
+X-GitHub-Sender: redacted
+X-GitHub-Recipient: redacted
+X-GitHub-Reason: comment
+List-ID: DMOJ/docs <docs.DMOJ.github.com>
+List-Archive: https://github.com/DMOJ/docs
+X-Auto-Response-Suppress: All
+
+----==_mimepart_622b9ee559f37_64afc6fc701f1
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+
+
+-- 
+Reply to this email directly or view it on GitHub:
+https://github.com/DMOJ/docs/pull/110#pullrequestreview-907625006
+You are receiving this because you commented.
+
+Message ID: <DMOJ/docs/pull/110/review/907625006@github.com>
+----==_mimepart_622b9ee559f37_64afc6fc701f1
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p></p>
+
+
+<script type="application/ld+json">[
+{
+"@context": "http://schema.org",
+"@type": "EmailMessage",
+"potentialAction": {
+"@type": "ViewAction",
+"target": "https://github.com/DMOJ/docs/pull/110#pullrequestreview-907625006",
+"url": "https://github.com/DMOJ/docs/pull/110#pullrequestreview-907625006",
+"name": "View Pull Request"
+},
+"description": "View this Pull Request on GitHub",
+"publisher": {
+"@type": "Organization",
+"name": "GitHub",
+"url": "https://github.com"
+}
+}
+]</script>
+----==_mimepart_622b9ee559f37_64afc6fc701f1--
