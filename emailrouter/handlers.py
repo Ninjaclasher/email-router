@@ -83,7 +83,7 @@ class DiscordHandler(ArgumentMixin, Handler):
 
     def __call__(self, email):
         subject = self.webhook.escape(email.subject)
-        message = self.webhook.escape(email.text_plain) or email.text_markdown
+        message = self.webhook.escape(email.text_plain).replace('\n>\n', '\n> \n') or email.text_markdown
 
         fields = []
         for name, value in (
