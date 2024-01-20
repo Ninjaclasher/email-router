@@ -28,7 +28,10 @@ class RegistryInterface:
         self.named_objects = {}
 
     def create_object(self, data):
-        return self._registry.create_object(data, self) or self.named_objects[data['name']]
+        return (
+            self._registry.create_object(data, self) or
+            self.named_objects[data if isinstance(data, str) else data['name']]
+        )
 
     def register_named_object(self, name, data):
         self.named_objects[name] = self.create_object(data)
@@ -57,6 +60,8 @@ class Registry:
                 clazz = self.default_class
             else:
                 raise InvalidConfigException('No default class available and no type specified.')
+        elif isinstance(data, str):
+            return None
         else:
             t = data['type']
             if t not in self.classes:
