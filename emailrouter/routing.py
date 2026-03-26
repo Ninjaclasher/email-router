@@ -22,8 +22,12 @@ class Route:
     def __call__(self, email):
         if not self.filter(email):
             return False
+
         for handler in self.handlers:
-            handler(email)
+            try:
+                handler(email)
+            except Exception:
+                logger.exception('Handler "%s" raised', handler.name)
 
         if self.propagate:
             return True
