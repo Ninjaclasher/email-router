@@ -65,5 +65,9 @@ class TestRouter(unittest.TestCase):
         msg['Subject'] = 'RE:'
         msg['To'] = 'a@gmail.com'
         msg['From'] = 'b@gmail.com'
-        with self.assertRaises(ValueError):
+
+        with self.assertLogs('', level='ERROR') as cm:
             r.execute(Email(msg.as_string()))
+        self.assertEqual(len(cm.records), 2)
+        self.assertIn('Handler "python" raised', cm.records[0].message)
+        self.assertIn('Handler "imap" raised', cm.records[1].message)
