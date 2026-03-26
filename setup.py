@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name='email-router',
-    version='1.0.4',
+    version='1.0.5',
     author='Evan Zhang',
     install_requires=['pyyaml', 'mail-parser', 'html2text'],
     include_package_data=True,
